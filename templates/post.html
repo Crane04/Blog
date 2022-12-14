@@ -1,0 +1,92 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700..900&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'new.css'%}">
+
+    <title>{{ posts.title }}</title>
+  </head>
+  <body>
+    <header class="page-header">
+  <div class="container">
+    <div class="page-header__content">
+      <div>
+        <h1 style="color:white"> BioClass</h1>
+      </div>
+      <nav>
+
+        <ul role="list" class="nav-list flex-group">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+    <main>
+
+<article class="main-article">
+<div class="container container--narrow flow">
+
+    <h1 class="article-title">
+      {{posts.title}}
+    </h1>
+    <figure class="main-article__figure">
+      <img src="/media/{{posts.image_exp}}" alt="This is a test">
+      <figcaption>
+          {{ posts.title }}
+      </figcaption>
+    </figure>
+    {{ posts.content }}
+
+</div>
+</article>
+    </main>
+    <footer  id="footer" class="site-footer">
+  <div>
+   <figure>
+      <a href="https://www.facebook.com/profile.php?id=100071760025096"><img src="{% static '/assets/blog/facebook.png'%}" alt="Facebook Page"></a>
+    </figure>
+    <figure>
+      <a href="https://wa.me/+2347086862109"><img src="{% static '/assets/blog/whatsapp.png'%}" alt="Whatsapp Page"></a>
+    </figure>
+    <figure>
+      <a href="#"><img src="{% static '/assets/blog/instagram.png'%}" alt="Instagram Page"></a>
+    </figure>
+    <figure>
+      <a href="#"><img src="{% static '/assets/blog/twitter.png'%}" alt="Facebook Page"></a>
+    </figure>
+    <figure>
+      <a href="mailto:mayowayusuf3004@gmail.com"><img src="{% static '/assets/blog/email.png' %}" alt="Mail"></a>
+    </figure>
+
+
+  </div>
+  <p>© Craennie 2022. All rights reserved.</p>
+</footer>
+
+<script>
+var myNav = document.querySelector(".page-header")
+
+window.onscroll = function(){
+    if (document.body.scrollTop >= 1000 || document.documentElement.scrollTop >= 1000){
+        myNav.style.backgroundColor = "#333"
+    }else{
+        myNav.style.backgroundColor = "crimson"
+    }
+}
+</script>
+
+  </body>
+</html>

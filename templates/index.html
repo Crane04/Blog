@@ -1,0 +1,113 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700..900&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="{% static 'new.css' %}">
+
+    <title>BioClass</title>
+  </head>
+  <body>
+    <header class="page-header">
+  <div class="container">
+    <div class="page-header__content">
+      <div>
+        <h1 style="color:white"> BioClass</h1>
+      </div>
+      <nav>
+        
+        <ul role="list" class="nav-list flex-group">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+    <main>
+      
+<section class="hero">
+  <div class="container flow">
+      <div class="hero__content flow">
+        <h1 class="section-title">Welcome to my blog!</h1>
+        <p>I use this space to document my adventures in front-end development, sharing how I’ve overcome issues I’ve run into, useful resources, and more.</p>
+        <p>Below are some of my favourite articles, or you can go to the blog page to see my most recent posts.</p>
+        <div class="flex-group">
+          <a href="#featured-articles" class="btn btn--primary">Featured articles</a>
+          <a href="blog" class="btn btn--neutral">Most recent articles</a>
+        </div>
+      </div>
+      <div>
+        <img src="{% static '/assets/blog/myImage.jpg'%}" alt=''  class="hero__image">
+      </div>
+  </div>
+</section>
+
+<section id="featured-articles" class="featured-articles">
+  <div class="container flow">
+    <h2 class="section-title text-center ">Featured articles</h2>
+    <p class="text-center">Here is a sample of articles which I feel give you a good idea of what this site is all about.</p>
+    <ul role="list" class="articles__list flow">
+        {% for post in posts  %}
+        {% if post.is_featured == True %}
+        <li>
+         <article class="snippet">
+          <img src="/media/{{post.image_exp}}" alt="This is a test" class="snippet__image">
+          <h3 class="snippet__title"><a href="post/{{post.title}}">{{ post.title }}</a></h3>
+          <p class="snippet__meta">by <span>{{ post.author }}</span> on <span>{{ post.time_written }}</span></p>
+             <p class="snippet__body">{{post.content|truncatewords:20}}</p>
+             <a href="post/{{post.title}}" class="btn btn--primary">Continue Reading</a>
+         </article>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+  </div>
+</section> 
+    </main>
+ <footer  id="footer" class="site-footer">
+  <div>
+    <figure>
+      <a href="https://www.facebook.com/profile.php?id=100071760025096"><img src="{% static '/assets/blog/facebook.png'%}" alt="Facebook Page"></a>
+    </figure>
+    <figure>
+      <a href="https://wa.me/+2347086862109"><img src="{% static '/assets/blog/whatsapp.png'%}" alt="Whatsapp Page"></a>
+    </figure>
+    <figure>
+      <a href="#"><img src="{% static '/assets/blog/instagram.png'%}" alt="Instagram Page"></a>
+    </figure>
+    <figure>
+      <a href="#"><img src="{% static '/assets/blog/twitter.png'%}" alt="Facebook Page"></a>
+    </figure>
+    <figure>
+      <a href="mailto:mayowayusuf3004@gmail.com"><img src="{% static '/assets/blog/email.png' %}" alt="Mail"></a>
+    </figure>
+
+  </div>
+  <p>© Craennie 2022. All rights reserved.</p>
+</footer>
+
+<script>
+var myNav = document.querySelector(".page-header")
+
+window.onscroll = function(){
+    if (document.body.scrollTop >= 1000 || document.documentElement.scrollTop >= 1000){
+        myNav.style.backgroundColor = "#333"
+    }else{
+        myNav.style.backgroundColor = "crimson"
+    }
+}
+</script>
+
+  </body>
+</html>
