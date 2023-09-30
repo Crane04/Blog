@@ -6,14 +6,30 @@ from .models import Posts
 
 def index(request):
     posts = Posts.objects.all()[::-1]
-    return render(request, "index.html", {"posts": posts})
+    context = {
+        "title": "Mayowa's Portfolio",
+        "posts": posts,
+        "favicon":"static/assets/blog/myImage.png"
+    }
+    return render(request, "index.html", context)
 
 
 def blog(request):
     posts = Posts.objects.all()[::-1]
-    return render(request, "blog.html", {"posts": posts})
+
+    context = {
+        "title": "Mayowa's Portfolio",
+        "posts": posts,
+        "favicon":"static/assets/blog/myImage.png"
+    }
+    return render(request, "blog.html", context)
 
 
 def post(request, link):
-    posts = Posts.objects.get(title=link)
-    return render(request, "post.html", {"posts": posts})
+    post = Posts.objects.get(title=link)
+    context = {
+        "title": post.title,
+        "post": post,
+        "favicon": "https://res.cloudinary.com/dsaddflhf/image/upload/v1/" + str(post.image_exp)
+    }
+    return render(request, "post.html", context)

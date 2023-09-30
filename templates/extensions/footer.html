@@ -1,0 +1,47 @@
+{% load static %}
+
+<style>
+footer div img{
+  width:40px;
+  height: 40px;
+  margin-right: 15px;
+}
+</style>
+
+<footer  id="footer" class="site-footer">
+    <div>
+     <figure>
+        <a href="https://www.facebook.com/profile.php?id=100071760025096"><img src="{% static '/assets/blog/facebook.png'%}" alt="Facebook Page"></a>
+      </figure>
+      <figure>
+        <a href="https://wa.me/+2349114081137"><img src="{% static '/assets/blog/whatsapp.png'%}" alt="Whatsapp Page"></a>
+      </figure>
+      <figure>
+        <a href="#"><img src="{% static '/assets/blog/instagram.png'%}" alt="Instagram Page"></a>
+      </figure>
+      <figure>
+        <a href="https://twitter.com/craennie"><img src="{% static '/assets/blog/twitter.png'%}" alt="Facebook Page"></a>
+      </figure>
+      <figure>
+        <a href="mailto:mayowayusuf3004@gmail.com"><img src="{% static '/assets/blog/email.png' %}" alt="Mail"></a>
+      </figure>
+  
+  
+    </div>
+    <p>© Craennie 2023. All rights reserved.</p>
+  </footer>
+  
+  <script>
+  var myNav = document.querySelector(".page-header")
+  
+  window.onscroll = function(){
+      if (document.body.scrollTop >= 1000 || document.documentElement.scrollTop >= 1000){
+          myNav.style.backgroundColor = "#333"
+      }else{
+          myNav.style.backgroundColor = "crimson"
+      }
+  }
+  </script>
+  
+    </body>
+  </html>
