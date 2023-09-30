@@ -9,7 +9,7 @@ def index(request):
     context = {
         "title": "Mayowa's Portfolio",
         "posts": posts,
-        "favicon":"static/assets/blog/myImage.png"
+        # "favicon":"http://127.0.0.1:8000/static/assets/blog/myImage.png"
     }
     return render(request, "index.html", context)
 
@@ -20,7 +20,7 @@ def blog(request):
     context = {
         "title": "Mayowa's Portfolio",
         "posts": posts,
-        "favicon":"static/assets/blog/myImage.png"
+        # "favicon":"static/assets/blog/myImage.png"
     }
     return render(request, "blog.html", context)
 
